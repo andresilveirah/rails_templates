@@ -1,0 +1,13 @@
+<h1><%%= <%= class_name %>.model_name.human %></h1>
+<br /><br />
+<% attributes.each do |attribute| %>
+<p>
+  <b><%%= t("activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>")%>:</b>
+  <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+</p>
+<% end %>
+
+<div class="form-actions">
+  <%%= link_to t("helpers.actions.edit"), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn'  %> 
+  <%%= link_to t("helpers.links.back"), <%= plural_table_name %>_path, :class => 'btn'  %>
+</div>

@@ -1,0 +1,19 @@
+<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+  <%%= f.error_notification %>
+
+  <div class="form-inputs">
+  <%- attributes.each do |attribute| -%>
+    <%- if attribute.type == :text -%>
+      <%%= f.input :<%= attribute.name %>, input_html: { rows: 3 }%>
+    <%- elsif attribute.reference? -%>
+      <%%= f.association :<%= attribute.name %> %>
+    <%- else -%>
+      <%%= f.input :<%= attribute.name %> %>
+    <%- end -%>
+  <%- end -%>
+  </div>
+
+  <div class="form-actions">
+    <%%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<%% end %>

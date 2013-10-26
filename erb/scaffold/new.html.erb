@@ -1,0 +1,5 @@
+<h1><%%= t("helpers.actions.new", model: <%= class_name %>.model_name.human) %></h1>
+
+<%%= render 'form' %>
+
+<%%= link_to t("helpers.links.back"), <%= plural_table_name %>_path, :class => 'btn' %>
